@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lstRowBackground"
+    style="@style/list_main_ll"
+    >
+
+    <LinearLayout
+        android:id="@+id/lstImgLayout"
+        style="@style/list_image_ll"
+        >
+
+    <ImageView
+        android:id="@+id/Image"
+        style="@style/list_image"
+        android:background="@null"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/list_text_summary_ll"
+        >
+
+        <TextView
+            android:id="@+id/Title"
+            android:text="Header Text"
+            style="@style/list_title_text"
+            />
+
+        <TextView
+            android:id="@+id/Summary"
+            style="@style/list_summary_text"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/custom_ll"
+        style="@style/list_custom_ll">
+    </LinearLayout>
+
+</LinearLayout>

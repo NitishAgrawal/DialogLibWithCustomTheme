@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    style="@style/dialog_main_rl"
+    >
+
+    <LinearLayout
+        android:id="@+id/parentPanel"
+        style="@style/dialog_parentPanel">
+
+        <LinearLayout
+            android:id="@+id/topPanel"
+            style="@style/dialog_topPanel">
+
+            <RelativeLayout
+                android:id="@+id/title_template"
+                style="@style/dialog_title_template">
+
+                <ImageView
+                    android:id="@+id/icon"
+                    style="@style/dialog_title_icon"/>
+
+                <TextView
+                    android:id="@+id/alertTitle"
+                    style="@style/DialogWindowTitle.dialog_title_text"
+                    />
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/titleDivider"
+                style="@style/dialog_divider"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/contentPanel"
+            style="@style/dialog_contentPanel">
+
+            <TextView
+                android:id="@+id/message"
+                style="@style/dialog_message" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:id="@+id/customPanel"
+            style="@style/dialog_custom_frame"
+            ></FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/button1"
+                style="@style/dialog_btn"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="5dp"
+                android:text="OK"
+                android:visibility="gone" />
+
+            <Button
+                android:id="@+id/button2"
+                style="@style/dialog_btn"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="10dp"
+                android:text="Cancle"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
