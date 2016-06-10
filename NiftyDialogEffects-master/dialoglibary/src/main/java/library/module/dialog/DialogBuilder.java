@@ -549,8 +549,10 @@ public class DialogBuilder extends Dialog implements DialogInterface {
         withTitleColor("#000000");                                  //Def Title text color
         withDividerColor("#9E9E9E");                                //Def Divider color
         withDialogColor("#FFFFFF");                                 //Def Dialog background color
-        mButton1.setTextColor(Color.parseColor("#000000"));         //Def Dialog Button1 background color
-        mButton2.setTextColor(Color.parseColor("#000000"));         //Def Dialog Button2 background color
+        mButton1.setTextColor(Color.parseColor("#000000"));         //Def Dialog Button1 text color
+        mButton1.setBackgroundColor(Color.parseColor("#9E9E9E"));         //Def Dialog Button1 background color
+        mButton2.setTextColor(Color.parseColor("#000000"));         //Def Dialog Button2 text color
+        mButton2.setBackgroundColor(Color.parseColor("#9E9E9E"));         //Def Dialog Button1 background color
         if (isListDialog) {
             setRowColors("#212121", "#212121", "#00000000", "#FFFFFF");//Def List Dialog items colors(RowTitle,RowSummeryMsg,ImageBackgroundColor,RowBackgroundColor)
         } else {

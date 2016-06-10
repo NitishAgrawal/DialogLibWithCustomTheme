@@ -5,14 +5,18 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import library.module.dialog.Effectstype;
 import library.module.dialog.DialogBuilder;
+import library.module.dialog.ListBuilder;
 
 
 public class MainActivity extends Activity{
 
     private Effectstype effect;
+    DialogBuilder builder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,30 +44,41 @@ public class MainActivity extends Activity{
             case R.id.rotatebottom:effect=Effectstype.RotateBottom;break;
             case R.id.rotateleft:effect=Effectstype.RotateLeft;break;
             case R.id.slit:effect=Effectstype.Slit;break;
-            //case R.id.shake:effect=Effectstype.Shake;break;
-            case R.id.shake:startActivity(new Intent(this,Main2Activity.class));break;
+            case R.id.shake:effect=Effectstype.Shake;break;
+            case R.id.light:effect=Effectstype.Fadein;break;
+            case R.id.custom:effect=Effectstype.Slidetop;break;
+            case R.id.list_dialog:effect=Effectstype.SlideBottom;break;
         }
 
         //DialogBuilder.setThemeCustom("#FF0000","#FF00FF","#FFFFFF","#000000","#FF0000","#FF0000","#99000000","#00FF00");
         //DialogBuilder.setDefaultCustomDialog(this,"This is a default msg",false,"Alert").setThemeDark();
-       DialogBuilder builder = DialogBuilder.setDefaultCustomDialog(this,"This is a default msg","Alert",true,effect,Effectstype.Fadein,700,true,DialogBuilder.ThemeType.DARK);
-        if(v.getId()==R.id.newspager)
-        builder.setThemeCustom("#000099","#FF00FF","#FFFFFF","#000000","#FF0000","#FF0000","#99000000","#00FF00");
-      /*  ListBuilder listBuilder = new ListBuilder(this,0);
-        listBuilder.addItem("Title1","SubTitle1",R.drawable.icon);
-        listBuilder.addItem("Title2","",R.drawable.ic_launcher);
-        listBuilder.addItem("Title3","SubTitle3",0);
-        listBuilder.addItem("","SubTitle4",R.drawable.icon);
-        final DialogBuilder builder = listBuilder.build("title",true,effect,700,true,DialogBuilder.THEME_DARK);
-        //builder.setDefaultCustomDialogList(builder,"Title",true,effect,Effectstype.Fadein,700,false);
-       // builder.show();
-        builder.setListItemClick(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
-                        builder.dismiss();
+        if(v.getId()==R.id.list_dialog) {
+            ListBuilder listBuilder = new ListBuilder(this,0);
+            listBuilder.addItem("Title1","SubTitle1",R.drawable.icon);
+            listBuilder.addItem("Title2","",R.drawable.ic_launcher);
+            listBuilder.addItem("Title3","SubTitle3",0);
+            listBuilder.addItem("","SubTitle4",R.drawable.icon);
+            builder = listBuilder.build("title",true,effect,700,true,DialogBuilder.ThemeType.DARK);
+            //builder.setDefaultCustomDialogList(builder,"Title",true,effect,Effectstype.Fadein,700,false);
+            // builder.show();
+            builder.setListItemClick(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Toast.makeText(MainActivity.this,""+position,Toast.LENGTH_SHORT).show();
+                    builder.dismiss();
+                }
+            });
+        }else {
+            builder = DialogBuilder.setDefaultCustomDialog(this, "This is a default msg", "Alert", true, effect, Effectstype.Fadein, 700, true, DialogBuilder.ThemeType.DARK);
+            if (v.getId() == R.id.custom)
+                builder.setThemeCustom("#FFFFFF", "#FF8954", "#FFFFFF", "#DA5F6A", "#FF0000", "#FF0000", "#99000000", "#00FF00");
+            else if (v.getId() == R.id.light) { //DA5F6A
+                builder.setThemeLight();
             }
-        });*/
+        }
+
+        //You can customize everything by this commented method.
+
 /*
         dialogBuilder
                 //.withTitle("Modal Dialog")                                  //.withTitle(null)  no title
